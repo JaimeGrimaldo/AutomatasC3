@@ -27,12 +27,13 @@ class Registrar(QWidget,NuevoUsuario):
       def addUsuario(self):
             REnombre = re.compile("^([a-zA-Z]{2,}\s[a-zA-z]{1,}'?-?[a-zA-Z]{2,}\s?([a-zA-Z]{10,25})?)")
             REcorreo = re.compile("^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$")
-            REpassword = re.compile("^(?=.[A-Za-z])(?=.\d)[A-Za-z\d]{8,}$")
+            REpassword = re.compile("^(?=\w\d)(?=\w[A-Z])(?=\w*[a-z])\S{8,16}$")
             REusuario = re.compile("^[\s\S]{6,12}$")
             nombre = self.NombreLine.text()
             usuario = self.UsuarioLine.text()
             correo = self.CorreoLine.text()
             password = self.PasswordLine.text()
+            print(password,"<<ESTO ES DE JAIME")
             password2 = self.PasswordLine2.text()
             matchNombre = REnombre.match(nombre)
             matchUsuario = REusuario.match(usuario)
@@ -48,7 +49,7 @@ class Registrar(QWidget,NuevoUsuario):
                   if not matchEmail:
                         QMessageBox.information(self,"ERROR EN EMAIL","Ingreso correo erroneo ")
                   if not matchPassword:
-                        QMessageBox.information(self,"ERROR EN CONTRASEÑA","Mínimo ocho caracteres, al menos una letra mayúscula, una letra minúscula, un número y un carácter especial")
+                        QMessageBox.information(self,"ERROR EN CONTRASEÑA","La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.")
                   else:
                         evalua = correo.split(".")
                         bandera = proceso(evalua[0])
@@ -56,6 +57,7 @@ class Registrar(QWidget,NuevoUsuario):
                               if self.checkInput():
                                     data = (nombre,usuario,correo,password)
                                     if InsertUsuario(data):
+                                          QMessageBox.information(self,"AGREGADO","Usuario agregado")
                                           self.CleanInput()
                                     else:
                                           QMessageBox.information(self,"UPSS!!","Ocurrio algun error")
@@ -68,6 +70,3 @@ class Registrar(QWidget,NuevoUsuario):
             self.CorreoLine.clear()
             self.PasswordLine.clear()
             self.PasswordLine2.clear()
-      
-    
-          
