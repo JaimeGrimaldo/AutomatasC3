@@ -258,7 +258,7 @@ def ListProveedor():
 
 def BuscarProveedor(codigo):
       conn = crearConeccion()
-      sql = f"""SELECT * FROM Proveedores WHERE Codigo LIKE '%{codigo}%'"""
+      sql = f"""SELECT * FROM Proveedores WHERE ID LIKE '%{codigo}%'"""
       try:
             cur = conn.cursor()
             cur.execute(sql)
@@ -271,9 +271,9 @@ def BuscarProveedor(codigo):
                   cur.close()
                   conn.close()
 
-def EditarProveedor(codigo,data):
+def EditarProveedor(Id,data):
       conn = crearConeccion()
-      sql = f"""UPDATE Proveedores SET Nombre = ?, Producto = ? WHERE Codigo = {codigo}"""
+      sql = f"""UPDATE Proveedores SET Nombre = ?, Producto = ?, Codigo =? WHERE ID = {Id}"""
       try:
             cur = conn.cursor()
             cur.execute(sql,data)

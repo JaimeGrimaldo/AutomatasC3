@@ -122,6 +122,47 @@ QPushButton:pressed
     </size>
    </property>
   </widget>
+  <widget class="QPushButton" name="BotonRegistro">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>390</y>
+     <width>181</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+QPushButton:hover
+{
+	border-style: solid;
+   	background-color:#bbdefb;
+
+}
+
+QPushButton:pressed
+{
+	 	background-color:#0069c0;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>REGISTRAR</string>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../assets/register.png</normaloff>../assets/register.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>25</width>
+     <height>25</height>
+    </size>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

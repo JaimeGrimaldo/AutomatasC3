@@ -56,6 +56,27 @@ class LoginVentana(object):
         icon.addFile(u"./assets/login.png", QSize(), QIcon.Normal, QIcon.Off)
         self.Login.setIcon(icon)
         self.Login.setIconSize(QSize(25, 25))
+        self.BotonRegistro = QPushButton(LoginVentana)
+        self.BotonRegistro.setObjectName(u"BotonRegistro")
+        self.BotonRegistro.setGeometry(QRect(130, 390, 181, 51))
+        self.BotonRegistro.setCursor(QCursor(Qt.PointingHandCursor))
+        self.BotonRegistro.setStyleSheet(u"\n"
+"QPushButton:hover\n"
+"{\n"
+"	border-style: solid;\n"
+"   	background-color:#bbdefb;\n"
+"\n"
+"}\n"
+"\n"
+"QPushButton:pressed\n"
+"{\n"
+"	 	background-color:#0069c0;\n"
+"}\n"
+"")
+        icon1 = QIcon()
+        icon1.addFile(u"./assets/register.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.BotonRegistro.setIcon(icon1)
+        self.BotonRegistro.setIconSize(QSize(25, 25))
 
         self.retranslateUi(LoginVentana)
 
@@ -69,5 +90,6 @@ class LoginVentana(object):
         self.label_2.setText(QCoreApplication.translate("LoginVentana", u"<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:600; text-decoration: underline;\">INGRESE SU CONTRASE\u00d1A</span></p></body></html>", None))
         self.PasswordLine.setText("")
         self.Login.setText(QCoreApplication.translate("LoginVentana", u"INICIAR SESION", None))
+        self.BotonRegistro.setText(QCoreApplication.translate("LoginVentana", u"REGISTRAR", None))
     # retranslateUi
 

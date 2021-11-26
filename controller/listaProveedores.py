@@ -16,13 +16,13 @@ class ListadoProveedores(QWidget, Ventana_listaProveedores):
         from controller.editarProveedores import EditarProveedoress
         selecRow = self.table_proveedores.selectedItems()
         if selecRow:
-            idU = str(selecRow[2].text())
+            idU = str(selecRow[0].text())
             window = EditarProveedoress(self,idU)
             window.show()
         self.table_proveedores.clearSelection()
 
     def tableConfig(self):
-        columHeader = ("Código","Nombre","Producto")
+        columHeader = ("ID","Nombre","Producto","Codigo")
         self.table_proveedores.setColumnCount(len(columHeader))
         self.table_proveedores.setHorizontalHeaderLabels(columHeader)
         self.table_proveedores.setSelectionBehavior(QAbstractItemView.SelectRows)

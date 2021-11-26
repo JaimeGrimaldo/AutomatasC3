@@ -32,7 +32,7 @@
     <string>Nombre del proveedor:</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="Field_NombreProveedor">
+  <widget class="QLineEdit" name="nombreProv">
    <property name="geometry">
     <rect>
      <x>200</x>
@@ -42,7 +42,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="Field_Producto">
+  <widget class="QLineEdit" name="producto">
    <property name="geometry">
     <rect>
      <x>110</x>
@@ -57,7 +57,7 @@
     <rect>
      <x>30</x>
      <y>100</y>
-     <width>171</width>
+     <width>81</width>
      <height>16</height>
     </rect>
    </property>
@@ -71,7 +71,7 @@
     <string>Producto:</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="Field_CodigoProveedor">
+  <widget class="QLineEdit" name="codigoProv">
    <property name="geometry">
     <rect>
      <x>130</x>
@@ -117,19 +117,6 @@
    </property>
    <property name="text">
     <string>CONFIRMAR</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="Boton_Buscar">
-   <property name="geometry">
-    <rect>
-     <x>260</x>
-     <y>20</y>
-     <width>75</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Buscar</string>
    </property>
   </widget>
  </widget>

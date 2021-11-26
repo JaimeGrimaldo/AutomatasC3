@@ -10,6 +10,7 @@ class Login(QWidget,LoginVentana):
         self.setupUi(self)
         self.setWindowFlag(Qt.Window)
         self.Login.clicked.connect(self.Iniciar)
+        self.BotonRegistro.clicked.connect(self.RegistrarUsuario)
           
           
     def CheckInput(self):
@@ -24,7 +25,7 @@ class Login(QWidget,LoginVentana):
     def Iniciar(self):
         usuario = self.UsuarioLine.text()
         password = self.PasswordLine.text()
-        REpassword = re.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&.]{8,}$")
+        REpassword = re.compile("^(?=.[A-Za-z])(?=.\d)[A-Za-z\d]{8,}$")
         REusuario = re.compile("^[\s\S]{6,12}$")
         matchUsuario = REusuario.match(usuario)
         matchPassword = REpassword.match(password)
@@ -41,3 +42,9 @@ class Login(QWidget,LoginVentana):
                 window.show()
         else:
             QMessageBox.information(self, "ERROR", "DATOS ERRONEOS")
+
+    def RegistrarUsuario(self):
+        from controller.registro import Registrar
+        window = Registrar(self)
+        window.show()
+        

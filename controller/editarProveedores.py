@@ -11,28 +11,21 @@ class EditarProveedoress(QWidget, VentanaProveeores):
         self.setupUi(self)
         self.setWindowFlag(Qt.Window)
         self.cargarDatos()
-        self.Boton_Buscar.clicked.connect(self.buscarProveedor)
         self.Boton_Confirmar.clicked.connect(self.actualizarDatos)
-
-    def buscarProveedor(self):
-        print("Boton de buscar, funciona.")
     def confirmarCambios(self):
         print("Boton de cambios, funciona.")
 
     def cargarDatos(self):
         data = BuscarProveedor(self._codigo)
-        print("Esto es:",data)
-        print("Nombre:",data[0][0])
-        print("Producto:",data[0][1])
-        print("Codigo:",data[0][2])
-        self.Field_CodigoProveedor.setText(data[0][2])
-        self.Field_NombreProveedor.setText(data[0][0])
-        self.Field_Producto.setText(data[0][1])
+        print("Esto tiene data: ",data)
+        self.nombreProv.setText(data[0][1])
+        self.producto.setText(data[0][2])
+        self.codigoProv.setText(data[0][3])
 
     def check(self):
-        codigo= self.Field_CodigoProveedor.text()
-        nombre = self.Field_NombreProveedor.text()
-        producto = self.Field_Producto.text()
+        codigo= self.codigoProv.text()
+        nombre = self.nombreProv.text()
+        producto = self.producto.text()
         if codigo ==""or nombre =="" or producto =="":
             QMessageBox.information(self,"Error en campos","Campos vacios.")
             return False
@@ -41,11 +34,12 @@ class EditarProveedoress(QWidget, VentanaProveeores):
 
     def actualizarDatos(self):
         REnombre = re.compile("^([a-zA-Z]{2,}\s[a-zA-z]{1,}'?-?[a-zA-Z]{2,}\s?([a-zA-Z]{10,25})?)")
-        nombre = self.Field_NombreProveedor.text()
-        producto = self.Field_nombreProducto.text()
-        codigo = self.field_codigoProveedor.text()
+        nombre = self.nombreProv.text()
+        producto = self.producto.text()
+        codigo = self.codigoProv.text()
+        print("Esto tiene codigo:",codigo)
         matchNombre = REnombre.match(nombre)
-        data = (nombre,producto)
+        data = (nombre,producto,codigo)
 
         print(nombre, producto, codigo,"DATA: ",data)
         

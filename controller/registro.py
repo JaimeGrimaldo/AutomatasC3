@@ -27,7 +27,7 @@ class Registrar(QWidget,NuevoUsuario):
       def addUsuario(self):
             REnombre = re.compile("^([a-zA-Z]{2,}\s[a-zA-z]{1,}'?-?[a-zA-Z]{2,}\s?([a-zA-Z]{10,25})?)")
             REcorreo = re.compile("^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$")
-            REpassword = re.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$")
+            REpassword = re.compile("^(?=.[A-Za-z])(?=.\d)[A-Za-z\d]{8,}$")
             REusuario = re.compile("^[\s\S]{6,12}$")
             nombre = self.NombreLine.text()
             usuario = self.UsuarioLine.text()
